@@ -11,7 +11,7 @@ Step 1: Compile LLVM 7.0 with golden plugin.
 
 <2> Compile
     [compile binutils]:
-	    mkdir build
+	mkdir build
         cd build
         ../binutils/configure --enable-gold --enable-plugins --disable-werro
         make all-gold
