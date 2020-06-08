@@ -1,8 +1,10 @@
-# hpcanalysis
+# PCA
 
-README: OAF_An optimized data flow analyzer based on LLVM
+README: PCA: Memory Leak Detection using Partial Call-Path Analysis
 
-Step 1: Compile LLVM 7.0 with golden plugin
+
+Step 1: Compile LLVM 7.0 with golden plugin.
+
 <1> Download 
     get LLVM: http://releases.llvm.org/download.html#7.0.0
     get binutils: http://ftp.gnu.org/gnu/binutils/
@@ -20,20 +22,22 @@ Step 1: Compile LLVM 7.0 with golden plugin
 		cmake -DCMAKE_BUILD_TYPE:String=Release -DLLVM_BINUTILS_INCDIR=../binutils-2.32/include ../llvm
 
 
-Step 2: Compile OAF and application tools based on it
+Step 2: Compile PCA and application tools based on it.
+
 <1> Configure environment
 	#The following three configuration could be added into "/etc/profile"
 	export LLVM_PATH=/your_path/llvm7.0.0
 	export CLANG_PATH=$LLVM_PATH/build/bin
 	export PATH=$PATH:$CLANG_PATH
 
-<2> build OAF
-	cd /your_path/oaf
+<2> build PCA
+	cd /your_path/PCA
 	./build.sh
 	#the executable of tool would be generated to build/bin
 
 
-Step 3: A study case, Memcheck(memory-leak detection tool on OAF)
+Step 3: A study case, Memcheck(memory-leak detection tool on PCA).
+
 <1> Compile Target program with clang & gold plugin
     refer: https://llvm.org/docs/GoldPlugin.html
 
