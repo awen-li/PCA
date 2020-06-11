@@ -1,3 +1,2 @@
-add_subdirectory(Pca)
-add_subdirectory(MemCheck)
+add_subdirectory(PcaMem)
 
