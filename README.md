@@ -26,3 +26,4 @@ cd PCA
         PcaMem -dir program_path_directory -pre 1	
    3.3> Run PcaMen on the target program executable
         PcaMem -file program_executable
+
