@@ -2,69 +2,27 @@
 
 README: PCA: Memory Leak Detection using Partial Call-Path Analysis
 
+================================================
+Use PCA with Virtual Machine
+================================================
+1> Download Virtual Disk Image for PCA from https://drive.google.com/file/d/12eMHiYnqYPwjgpd6BjKtmmiT73y9lGC4/view?usp=sharing
+2> Open the Image with VirtualBox
+3> Account Information: pca/pca, root/pca
+4> Use PCA in the directory /home/pca/PCA
 
-Step 1: Compile LLVM 7.0 with golden plugin.
-
-<1> Download 
-
-    get LLVM: http://releases.llvm.org/download.html#7.0.0
-    
-    get binutils: http://ftp.gnu.org/gnu/binutils/
-
-<2> Compile
-
-    [compile binutils]:
-    
-	mkdir build
-	
-        cd build
-	
-        ../binutils/configure --enable-gold --enable-plugins --disable-werro
-	
-        make all-gold
-		
-    [compile llvm]:
-    
-		mkdir build
-		
-		cd build
-		
-		cmake -DCMAKE_BUILD_TYPE:String=Release -DLLVM_BINUTILS_INCDIR=../binutils-2.32/include ../llvm
-		
-
-
-Step 2: Compile PCA and application tools based on it.
-
-<1> Configure environment
-	#The following three configuration could be added into "/etc/profile"
-	
-	export LLVM_PATH=/your_path/llvm7.0.0
-	
-	export CLANG_PATH=$LLVM_PATH/build/bin
-	
-	export PATH=$PATH:$CLANG_PATH
-	
-
-<2> build PCA
-
-	cd /your_path/PCA
-	
-	./build.sh
-	
-	#the executable of tool would be generated to build/bin
-	
-
-
-Step 3: A study case, Memcheck(memory-leak detection tool on PCA).
-
-<1> Compile Target program with clang & gold plugin
-
-    refer: https://llvm.org/docs/GoldPlugin.html
-
-<2> Run Memcheck in preload mode on the target program directory
-
-    Memcheck -dir program_path_directory -pre 1
-	
-<3> Run Memcheck on the target program executable
-
-    Memcheck -file program_executable
+================================================
+Source compilation and installation
+================================================
+1> Compile LLVM7.
+cd PCA/llvm7
+sudo ./installLLVM.sh
+2> Compile PCA and application tools based on it.
+cd PCA
+./build.sh
+3> A study case, PcaMen(memory-leak detection tool on PCA).
+   3.1> Compile Target program with clang & gold plugin
+        refer: https://llvm.org/docs/GoldPlugin.html
+   3.2> Run PcaMen in preload mode on the target program directory
+        PcaMem -dir program_path_directory -pre 1	
+   3.3> Run PcaMen on the target program executable
+        PcaMem -file program_executable
