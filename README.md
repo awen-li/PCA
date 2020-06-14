@@ -4,7 +4,7 @@ README: PCA: Memory Leak Detection using Partial Call-Path Analysis
 
 ================================================
 
-Use PCA with Virtual Machine
+Use PCA directly with Virtual Machine
 
 ================================================
 
@@ -21,7 +21,7 @@ Use PCA with Virtual Machine
 
 ================================================
 
-Source compilation and installation
+Use PCA by Source compilation and installation
 
 ================================================
 
