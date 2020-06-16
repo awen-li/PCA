@@ -24,18 +24,18 @@ Here we present two ways to fetch and use *PCA*:
 # Usage
 We implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-Mem* against target program for memory leak detection.
 
-## Check prerequisites
+#### Check prerequisites
 We guarantee that *PCA* can be installed and run successfully with the support of following prerequisites:
 1. UNIX  (Ubuntu 16.04 LTS or Ubuntu 18.04 LTS)
 2. LLVM  (v7.0.0)
 
 
-## Compile target program
+#### Compile target program
 To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html). Usually we need to specify the compiler as clang and set compile parameters as following:
 1. Compile Flag: -emit-llvm
 2. Link Flag:    -ftlo
 
-## Run *PCA-Mem* against simple program
+#### Run *PCA-Mem* against simple program
 In this step, we present how to do memory leak detection with PCA-Mem and generate data-dependence graph (DDG) for graphical display.
 
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1.PNG)
@@ -50,7 +50,7 @@ We present a parameter (--dump-DDG) to generate DDG.dot, which can be open by [G
 
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1_DDG.png)
 
-## Run *PCA-Mem* against [Slurm](https://slurm.schedmd.com/download.html)
+#### Run *PCA-Mem* against [Slurm](https://slurm.schedmd.com/download.html)
 For large scale program like Slurm (Version 15.08.7), which usually contains multiple modules, *PCA-Mem* conducts two-step analysis:
 1. Pre-process: Compute dependencies between modules (e.g., PCA-Mem -dir Slurm -pre=1). 
 2. Program analysis: Link all necessary IR of modules for the target executable and Perform data dependence analysis and memory leak detection sequentially (e.g., PCA-Mem -file Slurm/salloc.bc). 
