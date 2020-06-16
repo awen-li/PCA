@@ -35,7 +35,7 @@ To enable data-dependence analysis based on LLVM, target program needs to be com
 1. Compile Flag: -emit-llvm
 2. Link Flag:    -ftlo
 
-## Run *PCA-Mem* against simple program and debugging
+## Run *PCA-Mem* against simple program
 In this step, we present how to do memory leak detection with PCA-Mem and generate data-dependence graph (DDG) for graphical display.
 
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1.PNG)
