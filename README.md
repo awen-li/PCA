@@ -14,11 +14,11 @@ Here we present two ways to fetch and use *PCA*:
 #### Use *PCA* through Virtual Machine
 1. Download PCA-VM.zip (the virtual disk image) through the [link](https://drive.google.com/file/d/12eMHiYnqYPwjgpd6BjKtmmiT73y9lGC4/view?usp=sharing).
 2. Launch the virtual machine in Virtual Box(username/password: pca/pca, root/pca).
-3. Open a terminal, and go to the directory/home/pca/PCA.
+3. Open a terminal, and entry the directory /home/pca/PCA.
 
 #### Use *PCA* through source code compilation.
 1. Download source code through the [link](https://github.com/Daybreak2019/PCA).
-2. Entry directory PCA/llvm7 and run installLLVM.sh, which will install LLVM7 and configure environmentvariables automatically.
+2. Entry directory PCA/llvm7 and run installLLVM.sh, which will install LLVM7 and configure environment variables automatically.
 3. Entry directory PCA and build PCA with script build.sh.
 
 # Usage
