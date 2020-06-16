@@ -22,10 +22,10 @@ Here we present two ways to fetch and use *PCA*:
 3. Entry directory PCA and build PCA with script build.sh.
 
 # Usage
-we implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-Mem* against target program for memory leak detection.
+We implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-Mem* against target program for memory leak detection.
 
 ## Check prerequisites
-we guarantee that {\tool} can be installed and run successfully with the support of following prerequisites:
+We guarantee that {\tool} can be installed and run successfully with the support of following prerequisites:
 1. UNIX  (Ubuntu 16.04 LTS or Ubuntu 18.04 LTS)
 2. LLVM  (v7.0.0)
 
@@ -48,7 +48,7 @@ A small test case (leak.bc) is shown as Figure above, there are two partial free
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1_res.PNG)
 ***
 
-we present a parameter (--dump-DDG) to generate DDG.dot, which can be open by [GVEdit](https://graphviz.org/download/) as below (ICFG is painted with black color while DDG with red), in this case we could verify the correctness of DDG manually while debugging.
+We present a parameter (--dump-DDG) to generate DDG.dot, which can be open by [GVEdit](https://graphviz.org/download/) as below (ICFG is painted with black color while DDG with red), in this case we could verify the correctness of DDG manually while debugging.
 
 ***
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1_DDG.png)
