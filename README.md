@@ -25,7 +25,7 @@ Here we present two ways to fetch and use *PCA*:
 We implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-Mem* against target program for memory leak detection.
 
 ## Check prerequisites
-We guarantee that {\tool} can be installed and run successfully with the support of following prerequisites:
+We guarantee that *PCA* can be installed and run successfully with the support of following prerequisites:
 1. UNIX  (Ubuntu 16.04 LTS or Ubuntu 18.04 LTS)
 2. LLVM  (v7.0.0)
 
