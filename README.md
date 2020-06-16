@@ -38,24 +38,21 @@ To enable data-dependence analysis based on LLVM, target program needs to be com
 ## Run *PCA-Mem* against simple program and debugging
 In this step, we present how to do memory leak detection with PCA-Mem and generate data-dependence graph (DDG) for graphical display.
 
-***
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1.PNG)
 ***
 
 A small test case (leak.bc) is shown as Figure above, there are two partial free defects obviously, which are detected by *PCA-Mem* (with command: PCA-Mem -file leak.bc) as expected (shown as Figure below).
 
-***
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1_res.PNG)
 ***
 
 We present a parameter (--dump-DDG) to generate DDG.dot, which can be open by [GVEdit](https://graphviz.org/download/) as below (ICFG is painted with black color while DDG with red), in this case we could verify the correctness of DDG manually while debugging.
 
-***
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1_DDG.png)
 
 ## Run *PCA-Mem* against [Slurm](https://slurm.schedmd.com/download.html)
 For large scale program like Slurm (Version 15.08.7), which usually contains multiple modules, *PCA-Mem* conducts two-step analysis:
-1. Pre-process: Find dependencies between modules (e.g., PCA-Mem -dir Slurm -pre=1). 
+1. Pre-process: Compute dependencies between modules (e.g., PCA-Mem -dir Slurm -pre=1). 
 2. Program analysis: Link all necessary IR of modules for the target executable and Perform data dependence analysis and memory leak detection sequentially (e.g., PCA-Mem -file Slurm/salloc.bc). 
 
         
