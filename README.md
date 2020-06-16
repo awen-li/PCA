@@ -31,7 +31,7 @@ We guarantee that {\tool} can be installed and run successfully with the support
 
 
 ## Compile target program
-To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html}{\color{blue)). Usually we need to specify the compiler as clang and set compile parameters as following:
+To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html). Usually we need to specify the compiler as clang and set compile parameters as following:
 1. Compile Flag: -emit-llvm
 2. Link Flag:    -ftlo
 
