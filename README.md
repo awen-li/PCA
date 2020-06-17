@@ -27,13 +27,14 @@ We implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-M
 
 #### Compile target program
 To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html). 
-1. For the simple subject used in the demo, the command line forthis step is: *clang -flto leak.c -c -o leak.bc*
+1. For the simple subject used in the demo, the command line forthis step is:
+- clang -flto leak.c -c -o leak.bc
 
 2. For the Slurm system subject used in the demo, the commandline for this step is:
 - Specify compiler:
   - export CC="clang -flto"
-  - export CXX="clang++ -flto
-  - "export RANLIB=/bin/true
+  - export CXX="clang++ -flto"
+  - export RANLIB=/bin/true
 - Compile Slurm: 
   - ./configure && make
 
