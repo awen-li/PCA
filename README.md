@@ -17,23 +17,25 @@ Here we present two ways to fetch and use *PCA*:
 3. Open a terminal, and entry the directory /home/pca/PCA.
 
 #### Use *PCA* through source code compilation.
-1. Download source code through the [link](https://github.com/Daybreak2019/PCA).
-2. Entry directory PCA/llvm7 and run installLLVM.sh, which will install LLVM7 and configure environment variables automatically.
-3. Entry directory PCA and build PCA with script build.sh.
+1. Check prerequisites (UNIX: Ubuntu 16.04 LTS or Ubuntu 18.04 LTS).
+2. Download source code through the [link](https://github.com/Daybreak2019/PCA).
+3. Enter directory PCA/llvm7 and run installLLVM.sh, which will install LLVM7 and configure environment variables automatically.
+4. Enter directory PCA and build PCA with script build.sh.
 
 # Usage
 We implemented a case study of *PCA: PCA-Mem*. This part shows how to run *PCA-Mem* against target program for memory leak detection.
 
-#### Check prerequisites
-We guarantee that *PCA* can be installed and run successfully with the support of following prerequisites:
-1. UNIX  (Ubuntu 16.04 LTS or Ubuntu 18.04 LTS)
-2. LLVM  (v7.0.0)
-
-
 #### Compile target program
-To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html). Usually we need to specify the compiler as clang and set compile parameters as following:
-1. Compile Flag: -emit-llvm
-2. Link Flag:    -ftlo
+To enable data-dependence analysis based on LLVM, target program needs to be compiled with clang and gold-plugin (details referred to [here](https://llvm.org/docs/GoldPlugin.html). 
+1. For the simple subject used in the demo, the command line forthis step is: *clang -flto leak.c -c -o leak.bc*
+
+2. For the Slurm system subject used in the demo, the commandline for this step is:
+- Specify compiler:
+  - export CC="clang -flto"
+  - export CXX="clang++ -flto
+  - "export RANLIB=/bin/true
+- Compile Slurm: 
+  - ./configure && make
 
 #### Run *PCA-Mem* against simple program
 In this step, we present how to do memory leak detection with PCA-Mem and generate data-dependence graph (DDG) for graphical display.
