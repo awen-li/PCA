@@ -31,7 +31,7 @@ To enable data-dependence analysis based on LLVM, target program needs to be com
 - clang -flto leak.c -c -o leak.bc
 
 2. For the Slurm system subject used in the demo, the commandline for this step is:
-- Specify compiler:
+- Specify environment variables for the compiler:
   - export CC="clang -flto"
   - export CXX="clang++ -flto"
   - export RANLIB=/bin/true
@@ -39,7 +39,8 @@ To enable data-dependence analysis based on LLVM, target program needs to be com
   - ./configure && make
 
 #### Run *PCA-Mem* against simple program
-In this step, we present how to do memory leak detection with PCA-Mem and generate data-dependence graph (DDG) for graphical display.
+In this step, we present how to run memory leak detection with PCA-Mem and generate the
+data-dependence graph (DDG) (for visual understanding purposes).
 
 ![case1](https://github.com/Daybreak2019/PCA/blob/master/image/case1.PNG)
 ***
