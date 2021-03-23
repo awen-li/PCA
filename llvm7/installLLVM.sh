@@ -7,6 +7,8 @@ llvm_path=$cur_path/llvm7.0.0
 
 # 1. build binutils-2.32
 cd $llvm_path/bin_build
+../binutils-2.32/configure
+make
 ../binutils-2.32/configure --enable-gold --enable-plugins --disable-werro
 make all-gold
 cd -
@@ -26,3 +28,22 @@ export PATH=$PATH:$CLANG_PATH
 echo "export LLVM_PATH=$llvm_path"  >> /etc/profile
 echo "export CLANG_PATH=$LLVM_PATH/build/bin" >> /etc/profile
 echo "export PATH=$PATH:$CLANG_PATH" >> /etc/profile
+
+cd /usr/bin/
+sudo mkdir backup
+sudo mv ar backup/
+sudo mv nm backup/
+sudo mv ld backup/
+sudo mv ranlib backup/
+
+binutils=$llvm_path/bin_build/binutils
+sudo cp $binutils/ar ./
+sudo cp $binutils/nm-new ./nm
+sudo cp $binutils/ranlib ./
+sudo cp $llvm_path/bin_build/gold/ld-new ./ld
+
+cd /usr/lib
+sudo mkdir bfd-plugins
+cd bfd-plugins
+sudo cp $llvm_path/build/lib/LLVMgold.so ./
+sudo cp $llvm_path/build/lib/libLTO.* ./
