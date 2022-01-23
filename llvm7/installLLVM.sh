@@ -18,7 +18,7 @@ cd -
 
 # 2. build llvm with gold plugin
 cd $llvm_path/build	
-cmake -DCMAKE_BUILD_TYPE:String=Release -DLLVM_BINUTILS_INCDIR=../binutils-2.32/include ../llvm-7.0.0.src
+cmake -DCMAKE_BUILD_TYPE:String=Release -DLLVM_BINUTILS_INCDIR=../binutils-2.37/include ../llvm-7.0.0.src
 make
 if [ ! -f "$llvm_path/build/bin/clang" ]; then
 	exit 0
