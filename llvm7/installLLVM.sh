@@ -1,22 +1,28 @@
 #  !bash
 
 tar -xzvf llvm7.0.0.tar.gz
-tar -xzvf binutils-2.32.tar.gz
-mv binutils-2.32 ./llvm7.0.0/
+tar -xzvf binutils-2.37.tar.gz
+mv binutils-2.37 ./llvm7.0.0/
 
 cur_path=`pwd`
 llvm_path=$cur_path/llvm7.0.0
 
 # 1. build binutils-2.32
 cd $llvm_path/bin_build
-../binutils-2.32/configure --enable-gold --enable-plugins --disable-werro
+../binutils-2.37/configure --enable-gold --enable-plugins --disable-werro
 make all-gold
+if [ ! -f "$llvm_path/bin_build/gold/ld-new" ]; then
+	exit 0
+fi
 cd -
 
 # 2. build llvm with gold plugin
 cd $llvm_path/build	
 cmake -DCMAKE_BUILD_TYPE:String=Release -DLLVM_BINUTILS_INCDIR=../binutils-2.32/include ../llvm-7.0.0.src
 make
+if [ ! -f "$llvm_path/build/bin/clang" ]; then
+	exit 0
+fi
 cd -
 
 
